@@ -5,9 +5,60 @@
   box-sizing: border-box;
 }
 
+:root {
+  --base-color: linear-gradient(to bottom, #0f0f0f, #210041);
+  --base-variant: rgba(255, 255, 255, 0.05);
+  --text-color: #fff;
+  --secondary-text: #5e0f87;
+  --base-border: rgba(255, 255, 255, 0.05);
+  --base-border-outline: 1px solid rgba(255, 255, 255, 0.15);
+  --base-hover-button: #5e0f87;
+}
+
+.lightmode {
+  --base-color: linear-gradient(to bottom, #e9ecef, #F1DBFF);
+  --base-variant: rgba(0, 0, 0, 0.05);
+  --text-color: #000;
+  --secondary-text: #7209b7;
+  --base-border: rgba(255, 255, 255, 0.47);
+  --base-border-outline: 1px solid rgb(187, 0, 255);
+  --base-hover-button: #cdb4db;
+}
+
+
+#toggleMode {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--base-border);
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+#toggleMode span {
+  color: var(--text-color);
+}
+
+#toggleMode span:last-child {
+  display: none;
+}
+
+.lightmode #toggleMode span:first-child {
+  display: none;
+}
+
+.lightmode #toggleMode span:last-child {
+  display: block;
+}
+
 body {
-  background: linear-gradient(to bottom, #0f0f0f, #210041);
-  color: #fff;
+  background: var(--base-color);
+  color: var(--text-color);
   min-height: 100vh;
   overflow-x: hidden;
   max-width: 100%;
@@ -52,7 +103,7 @@ body {
   padding: 10px 20px 10px 20px;
   font-size: 1.5rem;
   letter-spacing: 3px;
-  color: #fff;
+  color: var(--text-color);
 }
 
 /* Navbar */
@@ -71,7 +122,7 @@ body {
 
 .nav-links a {
   text-decoration: none;
-  color: #fff;
+  color: var(--text-color);
   font-weight: 500;
   padding: 8px 16px;
   border-radius: 20px;
@@ -80,8 +131,8 @@ body {
 
 .nav-links a:hover,
 .nav-links .active {
-  background: #5e0f87;
-  color: #fff;
+  background: var(--base-hover-button);
+  color: var(--text-color);
 }
 
 .portfolio {
@@ -97,8 +148,8 @@ body {
 .card {
   width: 100%;
   max-width: 300px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: var(--base-border);
+  border: var(--base-border-outline);
   border-radius: 20px;
   padding: 20px;
   text-align: center;
@@ -130,11 +181,11 @@ body {
   margin-top: 10px;
   font-size: 1.2rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .link-porto {
-  color: #fff;
+  color: var(--text-color);
 }
 
 .link-porto:hover {
@@ -145,7 +196,7 @@ body {
 .about {
   padding: 50px 20px;
   text-align: center;
-  color: #fff;
+  color: var(--text-color);
 }
 
 .section-title {
@@ -186,11 +237,23 @@ body {
   background: #ccc;
 }
 
+#togglePhotoBtn {
+  display: block;
+  margin: 15px auto 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 20px;
+  background: var(--base-hover-button);
+  color: var(--text-color);
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
 blockquote {
   font-style: italic;
   margin: 70px auto 20px auto; 
   font-size: 1.2rem;
-  color: #fff;
+  color: var(--text-color);
   max-width: 600px;
   text-align: center;
   position: relative;
@@ -238,9 +301,9 @@ blockquote::after {
   border-radius: 25px;
   margin-bottom: 20px;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-color);
   background: rgba(255, 255, 255, 0.1); /* transparan */
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
@@ -282,7 +345,7 @@ blockquote::after {
   font-size: 2rem;
   margin-bottom: 30px;
   font-weight: bold;
-  color: #fff;
+  color: var(--text-color);
   position: relative;
 }
 
@@ -291,10 +354,10 @@ blockquote::after {
   margin: 0 auto;
   padding: 30px;
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--base-border);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 2px solid rgba(255, 255, 255, 0.58);
+  border: var(--base-border-outline);
   position: relative;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
@@ -314,7 +377,7 @@ blockquote::after {
   display: block;
   text-align: left;
   margin: 15px 0 5px;
-  color: #fff;
+  color: var(--text-color);
   font-weight: 500;
 }
 
@@ -327,14 +390,14 @@ blockquote::after {
   outline: none;
   margin-bottom: 15px;
   font-size: 1rem;
-  color: #fff;
+  color: var(--text-color);
   background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: var(--base-border-outline);
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-color)
 }
 
 .btn-submit {
@@ -342,20 +405,29 @@ blockquote::after {
   border-radius: 20px;
   border: none;
   cursor: pointer;
-  background: #7209b7;
-  color: #fff;
+  background: var(--base-hover-button);
+  color: var(--text-color);
   font-weight: bold;
   transition: 0.3s;
 }
 
 .btn-submit:hover {
   background: #9d4edd;
-  color: black;
+  color: var(--text-color);
 }
 
 .btn-submit:active{
   background: #cfa6f1;
+}
 
+.notifEmail {
+  max-width: 500px;
+  margin: 20px auto;
+  padding: 10px;
+  color: var(--text-color);
+  background: var(--base-border);
+  border: var(--base-border-outline);
+  border-radius: 30px;
 }
 
 /* Responsif Tablet */
